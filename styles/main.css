@@ -1,0 +1,196 @@
+html{
+    font-size: 16px;
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+/*Typography and color*/
+.header{
+    font-size: 1.1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    background: #add8e6;
+    border-bottom: 1px solid #000;
+}
+.home{
+    font-family: "Open Sans", Roboto, sans-serif;
+    background: #add8e6;
+}
+.home__title{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+}
+.signup{
+
+}
+.signup__input{
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+}
+.signup__btn{
+    background: #ffa500;
+    border: 2px solid #ffa500;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Open Sans", sans-serif;
+}
+.signup__notice{
+    font-size: 0.9rem;
+}
+.plans__title{
+    font-family: Montserrat, "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.plan{
+    font-family: "Open Sans", sans-serif;
+    border: none;
+    border-radius: 3px;
+}
+.plan__length{
+    font-size: 1.618rem;
+}
+.plan__price{
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+.plan__features-title{
+    text-decoration: underline;
+    font-weight: 500;
+}
+.plan__features{
+    list-style-type: none;
+    font-size: 0.9rem;
+}
+.plan__billing{
+    font-size: 0.85rem;
+}
+.plan__signup{
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid #000;
+    border-radius: 3px;
+    background: #fff;
+    font-family: Montserrat, "Open Sans", sans-serif;
+}
+.plan:nth-child(1), .plan:nth-child(1) .plan__signup{
+    background: #eee;
+}
+.plan:nth-child(2), .plan:nth-child(2) .plan__signup{
+    background: #2196F3;
+}
+.plan:nth-child(3), .plan:nth-child(3) .plan__signup{
+    background: #ffa500;
+}
+.plan .plan__signup:hover{
+    background-color: #90ee90;
+    cursor: pointer;
+}
+.working__title{
+    font-family: Montserrat, sans-serif;
+}
+.working__body{
+    font-family: "Open Sans", sans-serif;
+}
+.example__title{
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+}
+.faq__title{
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+}
+.faq__body{
+    font-family: "Open Sans", sans-serif;
+}
+.faq__question{
+    font-weight: 700;
+}
+.footer{
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    background: #eee;
+}
+
+
+/*Layout and positioning*/
+.logo{
+    padding: 0.5rem;
+}
+.home{
+    padding: 3rem 2rem;
+}
+.home__title{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.home__body{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.signup{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 0;
+}
+.signup__input{
+    width: 100%;
+    text-align: center;
+    line-height: 2.618rem;
+}
+.signup__btn{
+    width: 100%;
+    line-height: 2.618rem;
+}
+
+
+.plans__title{
+    text-align: center;
+    padding: 1rem 0;
+}
+.plan{
+    text-align: center;
+    width: 95%;
+    margin: 0.326rem auto 1rem;
+    padding: 0.618rem 0 1rem;
+}
+.plan__features-title{
+    padding-top: 0.3rem;
+}
+.plan__features{
+    margin: 0.146rem 0 0.618rem;
+}
+.plan__billing{
+        padding-bottom: 0.2rem;
+}
+.plan__signup{
+    width: 90%;
+    line-height: 2rem;
+}
+.working{
+    width: 90%;
+    margin: 1.618rem auto;
+}
+.working__title{
+    text-align: center;
+    padding: 1rem 0 0.618rem;
+}
+.faq{
+    width: 90%;
+    margin: 0 auto;
+}
+.faq__title{
+    padding: 2rem 0 0.618rem;
+}
+.faq__item{
+    padding: 0.5rem 0;
+}
+.footer{
+    padding: 1.618rem;
+    width: 100%;
+}
