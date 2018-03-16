@@ -16,9 +16,10 @@
 <div class="home">
     <h3 class="home__title">Land the job of your dreams!</h3>
     <p class="home__body">Solve one problem every day and become better at solving challenging coding interviews.</p>
-    <form class="signup" method="post" action="https://formspree.io/humochieng9@gmail.com">
+    <form name="FreeSubscription" netlify-honeypot="bot-field" class="signup" method="post" netlify>
+        <p class="hidden"><label>Ignore this if you are human <input name="bot-field" /></label></p>
         <input type="email" class="signup__input" placeholder="Enter your email here" name="_replyto" />
-        <input type="submit" class="signup__btn" value="Subscribe for free"></input>
+        <input type="submit" class="signup__btn">Subscribe for free</input>
         <div class="signup__notice">We won't spam you. We promise.</div>
     </form>
 </div>

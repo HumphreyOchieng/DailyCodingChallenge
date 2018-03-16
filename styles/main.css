@@ -9,6 +9,12 @@ html{
 }
 
 
+/*States*/
+.hidden{
+    display: none;
+}
+
+
 /*Typography and color*/
 .header{
     font-size: 1.1rem;
