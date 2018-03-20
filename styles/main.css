@@ -18,7 +18,7 @@ html{
 /*Typography and color*/
 .header{
     font-size: 1.1rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: monospace, sans-serif;
     font-weight: bold;
     background: #add8e6;
     border-bottom: 1px solid #000;
