@@ -18,18 +18,20 @@ html{
 /*Typography and color*/
 .header{
     font-size: 1.1rem;
-    font-family: Inconsolata, monospace;
-    font-weight: bold;
-    background: #add8e6;
-    border-bottom: 1px solid #000;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 700;
 }
 .home{
-    font-family: "Open Sans", Roboto, sans-serif;
-    background: #add8e6;
+    font-family: "Open Sans", sans-serif;
+    background: #44c3fd;
 }
 .home__title{
     font-family: "Montserrat", sans-serif;
-    font-size: 1.8rem;
+    font-size: 2.4em;
+    font-weight: 700;
+}
+.home__body{
+    font-weight: 400;
 }
 .signup{
 
@@ -37,13 +39,18 @@ html{
 .signup__input{
     font-size: 1rem;
     font-family: "Open Sans", sans-serif;
+    border: none;
 }
 .signup__btn{
     background: #ffa500;
-    border: 2px solid #ffa500;
+    border: none;
     font-size: 1rem;
     font-weight: 500;
     font-family: "Open Sans", sans-serif;
+}
+.signup__btn:hover{
+    cursor: pointer;
+    background: #f09c00;
 }
 .signup__notice{
     font-size: 0.9rem;
@@ -126,10 +133,10 @@ html{
 
 /*Layout and positioning*/
 .logo{
-    padding: 0.5rem;
+    padding: 0.816rem;
 }
 .home{
-    padding: 3rem 2rem;
+    padding: 5rem 2rem 4rem;
 }
 .home__title{
     text-align: center;
@@ -172,7 +179,7 @@ html{
     margin: 0.146rem 0 0.618rem;
 }
 .plan__billing{
-        padding-bottom: 0.2rem;
+    padding-bottom: 0.2rem;
 }
 .plan__signup{
     width: 90%;
@@ -200,3 +207,11 @@ html{
     padding: 1.618rem;
     width: 100%;
 }
+
+/*Laptop*/
+@media only screen and (min-width: 900px){
+    .signup{
+        width: 50%;
+    }
+}
+
