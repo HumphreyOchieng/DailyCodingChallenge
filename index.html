@@ -3,83 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1">
-    <title>Daily Coding Challenge</title>
+    <title>Daily Javascript Problem</title>
     <link href="styles/main.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
 
 <body>
 
 <header class="header">
-    <div class="logo">Daily Coding Challenge</div>
+    <div class="logo">Daily Javascript Problem</div>
 </header>
 
 <div class="home">
     <h3 class="home__title">Land the job of your dreams!</h3>
-    <p class="home__body">Solve one problem every day and become better at solving challenging coding interviews.</p>
+    <p class="home__body">
+        Receive JavaScript coding problems asked by interviewers every day and handpicked remote
+        job offers from companies around the world every week.
+    </p>
     <form name="FreeSubscription" netlify-honeypot="bot-field" class="signup" method="post" netlify>
-        <p class="hidden"><label>Ignore this if you are human <input name="bot-field" /></label></p>
-        <input type="email" class="signup__input" placeholder="Enter your email here" name="_replyto" />
-        <input type="submit" class="signup__btn" value="Subscribe for free" />
-        <div class="signup__notice">No spam, forever.</div>
+        <p class="hidden"><label> Ignore this if you are human <input name="bot-field" /></label></p>
+        <input type="email" class="signup__input" placeholder="yourname@example.com" name="_replyto" />
+        <input type="submit" class="signup__btn" value="Sign up for free" />
+        <div class="signup__notice">No spam, ever.</div>
     </form>
 </div>
 
 <div class="plans">
-    <div class="plans__title">Paid plans come with detailed solutions</div>
+    <div class="plans__title">Receiving daily problems is free forever!</div>
     <div class="plans__body">
         <div class="plan">
-            <p class="plan__length">Intern</p>
+            <p class="plan__tier">Intern</p>
             <p class="plan__price">$0</p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
-                <li class="plan__feature">One problem every day</li>
+                <li class="plan__feature">One problem every day at 9:00AM</li>
                 <li class="plan__feature">No solutions</li>
+                <li class="plan__feature">No ads</li>
+                <li class="plan__feature">.</li>
             </ul>
             <p class="plan__billing">No billing. Quit anytime.</p>
-            <button class="plan__signup">Subscribe</button>
+            <button class="plan__signup">Sign Up</button>
             <p class="plan__notice"></p>
         </div>
-        <div class="plan plan--ideal">
+        <div class="plan plan--ideal" method="POST">
             <!-- <p class="plan__title">Most popular</p> -->
-            <p class="plan__length">Developer</p>
-            <p class="plan__price plan__price--ideal">$14</p>
+            <p class="plan__tier">Developer</p>
+            <p class="plan__price plan__price--ideal">$9</p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
-                <li class="plan__feature">One problem every day</li>
-                <li class="plan__feature">Guided solutions the next day</li>
-                <li class="plan__feature">3 coding interviews weekly</li>
+                <li class="plan__feature">One problem every day at 9:00AM</li>
+                <li class="plan__feature">Guided solutions every day at 9:00PM</li>
+                <li class="plan__feature">3 handpicked coding interviews weekly</li>
+                <li class="plan__feature">No ads</li>
             </ul>
             <p class="plan__billing">Automatic monthly billing. Quit anytime.</p>
-            <button class="plan__signup plan__signup--ideal">Subscribe for $14</button>
+            <button class="plan__signup plan__signup--ideal" id="tier2Button">Subscribe for $9</button>          
             <p class="plan__notice"></p>
         </div>
         <div class="plan">
-            <p class="plan__length">Architect</p>
-
-            <p class="plan__price">$19</p>
+            <p class="plan__tier">Architect</p>
+            <p class="plan__price">$14</p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
-                <li class="plan__feature">2 months free</li>
-                <li class="plan__feature">One problem every day</li>
-                <li class="plan__feature">Guided solutions the next day</li>
-                <li class="plan__feature">10 coding interviews weekly</li>
-            
+                <li class="plan__feature">One problem every day at 9:00AM</li>
+                <li class="plan__feature">Guided solutions every day at 9:00PM</li>
+                <li class="plan__feature">10 handpicked coding interviews weekly</li>
+                <li class="plan__feature">No ads</li>
             </ul>
             <p class="plan__billing">Automatic monthly billing. Quit anytime.</p>
-            <button class="plan__signup">Subscribe for $19</button>
+            <button class="plan__signup" id="tier3Button">Subscribe for $14</button>
             <p class="plan__notice"></p>
         </div>
     </div>
-</div>
-
-<div class="working">
-    <h3 class="working__title">Practice does makes perfect</h3>
-    <ol class="working__body">
-        <li class="working__item">We'll send you a coding challenge every morning through the email account you signed up with.</li>
-        <li class="working__item">You'll try to solve the challenge by yourself.</li>
-        <li class="working__item">We'll send you a guided solution the next day and you can compare your solution to ours.</li>
-        <li class="working__item">Your skills and confidence in solving challenging technical problems improve.</li>
-    </ol>
 </div>
 
 <div class="example">
@@ -92,40 +88,45 @@
     <h3 class="faq__title">Frequently Asked Questions</h3>
     <ol class="faq__body">
         <li class="faq__item">
-            <p class="faq__question">Can I benefit Daily Coding Challenges?</p>
+            <p class="faq__question">Why JavaScript?</p>
             <p class="faq__answer">
-                This service is primarily intended for people who are preparing for coding interviews and need to prepare for the 
-                questions asked by the interviewers. However, it's also useful for people who wish to test themselves
-                periodically to retain their knowledge of programming concepts.
+                We chose JavaScript beacuse of its potential use in different applications such as frontend or backend development. 
+                Other than its versatility, its widespread adoption for commercial projects means there's a larger market 
+                for developers than most languages. If you're interested in a similar service for Python developers, head on over to
+                <a class="faq__link" href="www.dailycodingproblem.com">dailycodingproblems.com</a>
             </p>
         </li>
         <li class="faq__item">
-            <p class="faq__question">How does Daily Coding Challenge differ from similar offerings?</p>
+            <p class="faq__question">Can I benefit from Daily JavaScript Problem?</p>
             <p class="faq__answer">
-                We offer a curated newsletter for both free and paying subscribers because we believe that there is more to coding interviews
-                than simply practicing problems. There are 3 handpicked articles per newsletter that are meant to broaden your knowledge and understanding of programming concepts as well as best practices in the professional industry.
+                If you're learning how to develop in JavaScript and/or looking for a remote position, this service is meant to
+                assist you. It can also help developers with more experience maintain the skillset they have cultivated over the
+                years through regular practice. If you've already secured employment, you can optionally unsubscribe from the interviews and 
+                continue recieving daily problems an solutions by reaching out to us or you can unsubscribe from the service entirely.
             </p>
         </li>
         <li class="faq__item">
-            <p class="faq__question">What are Topic Requests?</p>
+            <p class="faq__question">How does Daily JavaScript Problem differ from similar offerings?</p>
             <p class="faq__answer">
-                This is a feature available in the paid plans but not in the free tier. By sending an email to our email address with the name of a topic,
-                you'll recieve only questions from that topic for the next week. At the moment there are 5 topics with more to come. This feature is useful when you are studying a specific topic or if you are already familiar with most of the topics. The topic request lasts for a week after which you can make a new request or continue
-                recieving challenges from random topics. 
+                One, we focus solely on JavaScript. We believe that by focusing on one language, we are able to 
+                better address certain challenges faced by developers-in-training. Two, we curate by hand a 
+                selection of remote jobs every week that you can apply for so you get to spend more of your time 
+                on improving your skills. 
             </p>
         </li>
         <li class="faq__item">
-            <p class="faq__question">What does the curated newsletter include?</p>
+            <p class="faq__question">Can't I just look for job interviews on my own?</p>
             <p class="faq__answer">
-                The weekly newsletter is available for all plans and includes 3 articles that are hand picked from different sites.
-                They are meant to improve your coding knowledge and contain information related to programming concepts, code interviews, best practices
-                and other related topics.
+                You could, but you won't. Spending 1-2 hours everyday scanning job sites and trying to identify posts you can
+                apply for is tiresome and you'll probably end up skipping a few days. It also adds up to 7-14 hours every week and 
+                28-56 hours every month that you could spend on other activities. We do the work of curating job offerings by 
+                hand and sending them to you every week to apply at your own leisure. All the offerings we send are for remote positions.
             </p>
         </li>
         <li class="faq__item">
-            <p class="faq__question">How do I unsubscribe from Daily Coding Challenges?</p>
+            <p class="faq__question">Can I unsubscribe from Daily Javascript Problem whenever I choose?</p>
             <p class="faq__answer">
-                At the end of every email we send is a link to unsubscribe from our service if you wish to stop recieveing our emails.
+                Yes. A link to unsubscribe from the service is included at the end of every email we send you.
             </p>
         </li>
         
@@ -133,8 +134,64 @@
 </div>
 
 <footer class="footer">
-    <div class="copyright">Daily Coding Challenge 2018</div>
+    <div class="copyright">Daily Javascript Problem 2018</div>
 </footer>
+
+<form id="paymentForm" action="https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.run.webtask.io/StripeBackend" method="POST" class="hidden" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" id="stripeToken" name="stripeToken"  />
+    <input type="hidden" id="stripeEmail"  name="stripeEmail" />
+    <input type="hidden" id="planAmount" name="planAmount" />
+</form>
+
+<script>
+    var handler = StripeCheckout.configure ({
+        key: 'pk_test_B71JqmlByKCwZFyJvUncyQcU',
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        token: function(token) {
+            document.getElementById('stripeToken').value = token.id;
+            document.getElementById('stripeEmail').value = token.email;
+            $.ajax({
+                url : "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.run.webtask.io/StripeBackend",
+                type : "POST",
+                data : $("#paymentForm").serialize(),
+                xhrFields : {
+                    withCredentials : true
+                },
+                success : function (response){
+                    console.log("Shit works yo");
+                },
+                error : function () {
+                    console.log("Didn't do shit");
+                }
+            });
+        }
+    });
+
+    document.getElementById('tier2Button').addEventListener('click', function(e) {
+        document.getElementById('planAmount').value = 9;
+        handler.open({
+            name: 'Daily Javascript Problems',
+            description: 'Developer Plan',
+            amount: 900
+        });
+        e.preventDefault();
+    });
+
+    document.getElementById('tier3Button').addEventListener('click', function(e) {
+        document.getElementById('planAmount').value = 14;
+        handler.open({
+            name: 'Daily Javascript Problems',
+            description: 'Architect Plan',
+            amount: 1400
+        });
+        e.preventDefault();
+    });
+
+    window.addEventListener('popstate', function() {
+    handler.close();
+    });
+</script>
 
 </body>
 </html>

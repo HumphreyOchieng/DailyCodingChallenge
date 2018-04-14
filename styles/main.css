@@ -18,12 +18,14 @@ html{
 /*Typography and color*/
 .header{
     font-size: 1.1rem;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Montserrat", monospace;
     font-weight: 700;
+    /*background : #44c3fd;*/
 }
 .home{
     font-family: "Open Sans", sans-serif;
     background: #44c3fd;
+    border-bottom: 1px solid #aaa;
 }
 .home__title{
     font-family: "Montserrat", sans-serif;
@@ -32,9 +34,7 @@ html{
 }
 .home__body{
     font-weight: 400;
-}
-.signup{
-
+    font-size: 1.2rem;
 }
 .signup__input{
     font-size: 1rem;
@@ -56,29 +56,35 @@ html{
     font-size: 0.9rem;
 }
 .plans__title{
-    font-family: Montserrat, "Open Sans", sans-serif;
+    font-family: Montserrat, sans-serif;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 .plan{
     font-family: "Open Sans", sans-serif;
     border: none;
     border-radius: 3px;
+    border: 1px solid #aaa;
 }
-.plan__length{
-    font-size: 1.618rem;
+.plan__tier{
+    font-size: 1.88rem;
+    font-weight: 500;
+    font-family: Montserrat, sans-serif;
 }
 .plan__price{
-    font-size: 2.2rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Montserrat;
+    border-bottom: 1px solid #aaa;
 }
 .plan__features-title{
     text-decoration: underline;
-    font-weight: 500;
+    font-weight: 700;
 }
 .plan__features{
     list-style-type: none;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 .plan__billing{
     font-size: 0.85rem;
@@ -91,38 +97,53 @@ html{
     background: #fff;
     font-family: Montserrat, "Open Sans", sans-serif;
 }
-.plan:nth-child(1), .plan:nth-child(1) .plan__signup{
+.stripe_button{
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid #000;
+    border-radius: 3px;
+    background: #fff;
+    font-family: Montserrat, "Open Sans", sans-serif;
+}
+.plan:nth-child(1) .plan__tier, .plan:nth-child(1) .plan__price{
     background: #eee;
 }
-.plan:nth-child(2), .plan:nth-child(2) .plan__signup{
-    background: #2196F3;
+.plan:nth-child(2) .plan__tier, .plan:nth-child(2) .plan__price{
+    background: #44c3fd /*#2196F3*/;
 }
-.plan:nth-child(3), .plan:nth-child(3) .plan__signup{
+.plan:nth-child(3) .plan__tier, .plan:nth-child(3) .plan__price{
     background: #ffa500;
 }
-.plan .plan__signup:hover{
-    background-color: #90ee90;
+.plan:nth-child(1) .plan__signup:hover{
+    background-color: #eee;
     cursor: pointer;
 }
-.working__title{
-    font-family: Montserrat, sans-serif;
+.plan:nth-child(2) .plan__signup:hover{
+    background-color: #44c3fd;
+    cursor: pointer;
 }
-.working__body{
-    font-family: "Open Sans", sans-serif;
+.plan:nth-child(3) .plan__signup:hover{
+    background-color: #ffa500;
+    cursor: pointer;
 }
 .example__title{
     font-family: Montserrat, sans-serif;
     text-align: center;
+    font-size: 1.6rem;
 }
 .faq__title{
     text-align: center;
     font-family: Montserrat, sans-serif;
+    font-size: 1.6rem;
 }
 .faq__body{
     font-family: "Open Sans", sans-serif;
 }
 .faq__question{
     font-weight: 700;
+}
+.faq__link{
+    font-weight: 400;
 }
 .footer{
     text-align: center;
@@ -136,15 +157,15 @@ html{
     padding: 0.816rem;
 }
 .home{
-    padding: 5rem 2rem 4rem;
+    padding: 6rem 2rem 2rem;
 }
 .home__title{
     text-align: center;
-    padding-bottom: 1rem;
+    padding-bottom: 1.618rem;
 }
 .home__body{
     text-align: center;
-    padding-bottom: 1rem;
+    padding-bottom: 1.618rem;
 }
 .signup{
     text-align: center;
@@ -164,16 +185,22 @@ html{
 
 .plans__title{
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 0 2rem;
+    width: 95%;
 }
 .plan{
     text-align: center;
     width: 95%;
     margin: 0.326rem auto 1rem;
-    padding: 0.618rem 0 1rem;
+}
+.plan__tier{
+    padding-top: 1rem;
 }
 .plan__features-title{
     padding-top: 0.3rem;
+}
+.plan__price{
+    padding: 0.2rem 0 0.8rem;
 }
 .plan__features{
     margin: 0.146rem 0 0.618rem;
@@ -184,21 +211,17 @@ html{
 .plan__signup{
     width: 90%;
     line-height: 2rem;
+    margin-bottom: 1rem;
 }
-.working{
-    width: 90%;
-    margin: 1.618rem auto;
-}
-.working__title{
-    text-align: center;
-    padding: 1rem 0 0.618rem;
+.example__title{
+    padding-top: 2rem;
 }
 .faq{
     width: 90%;
-    margin: 0 auto;
+    margin: 2rem auto;
 }
 .faq__title{
-    padding: 2rem 0 0.618rem;
+    padding: 2rem 0 1.618rem;
 }
 .faq__item{
     padding: 0.5rem 0;
@@ -210,8 +233,29 @@ html{
 
 /*Laptop*/
 @media only screen and (min-width: 900px){
+    .home__title{
+        padding-bottom: 2.618rem;
+        font-size: 3rem;
+    }
+    .home__body{
+        padding-bottom: 3rem;
+        font-size: 1.2rem;
+        width: 60%;
+        margin: 0 auto;
+    }
     .signup{
         width: 50%;
+        padding-bottom: 2.618rem;
+    }
+    .plans{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 3rem;
+    }
+    .plan{
+        width: 33%;
+        display: inline-block;
     }
 }
 
