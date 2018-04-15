@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1">
     <title>Daily Javascript Problem</title>
-    <link href="styles/main.css" type="text/css" rel="stylesheet">
+    <link href="styles/main.css" type="text/css" rel="stylesheet" >
+    <link href="styles/prism.css" rel="stylesheet" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
@@ -143,6 +144,7 @@
     <input type="hidden" id="planAmount" name="planAmount" />
 </form>
 
+<script src="scripts/prism.js"></script>
 <script>
     var handler = StripeCheckout.configure ({
         key: 'pk_test_B71JqmlByKCwZFyJvUncyQcU',
@@ -151,13 +153,12 @@
         token: function(token) {
             document.getElementById('stripeToken').value = token.id;
             document.getElementById('stripeEmail').value = token.email;
+            var proxy = 'https://cors-anywhere.herokuapp.com/';
+            var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.run.webtask.io/StripeBackend";
             $.ajax({
-                url : "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.run.webtask.io/StripeBackend",
+                url : proxy + webtaskUrl,
                 type : "POST",
                 data : $("#paymentForm").serialize(),
-                xhrFields : {
-                    withCredentials : true
-                },
                 success : function (response){
                     console.log("Shit works yo");
                 },
