@@ -45,7 +45,7 @@ html{
     background: #ffa500;
     border: none;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: "Open Sans", sans-serif;
 }
 .signup__btn:hover{
@@ -68,12 +68,12 @@ html{
 }
 .plan__tier{
     font-size: 1.88rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: Montserrat, sans-serif;
 }
 .plan__price{
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 500;
     font-family: Montserrat;
     border-bottom: 1px solid #aaa;
 }
@@ -84,7 +84,7 @@ html{
 .plan__features{
     list-style-type: none;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 .plan__billing{
     font-size: 0.85rem;
@@ -95,7 +95,7 @@ html{
     border: 2px solid #000;
     border-radius: 3px;
     background: #fff;
-    font-family: Montserrat, "Open Sans", sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 .stripe_button{
     font-size: 1rem;
@@ -103,7 +103,7 @@ html{
     border: 2px solid #000;
     border-radius: 3px;
     background: #fff;
-    font-family: Montserrat, "Open Sans", sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 .plan:nth-child(1) .plan__tier, .plan:nth-child(1) .plan__price{
     background: #eee;
@@ -149,6 +149,9 @@ html{
     text-align: center;
     font-family: Montserrat, sans-serif;
     background: #eee;
+}
+.copyright{
+    font-weight: 600;
 }
 .tos a, .privacy a{
     color: #333;
