@@ -150,6 +150,10 @@ html{
     font-family: Montserrat, sans-serif;
     background: #eee;
 }
+.tos a, .privacy a{
+    color: #333;
+    text-decoration: none;
+}
 
 
 /*Layout and positioning*/

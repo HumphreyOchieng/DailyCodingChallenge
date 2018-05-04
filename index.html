@@ -5,11 +5,10 @@
     <meta name="viewport" content="initial-scale=1">
     <title>Daily Javascript Problem</title>
     <link href="styles/main.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
     <link href="styles/prism.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 </head>
 
 <body>
@@ -147,10 +146,6 @@
     <input type="hidden" id="planAmount" name="planAmount" />
 </form>
 
-<div id="result" class="modal">
-    <p>Will it work?</p>
-</div>
-
 <script src="scripts/prism.js"></script>
 <script>
     var handler = StripeCheckout.configure ({
@@ -224,7 +219,7 @@
         } );
     });
 
-    window.on('popstate', function() {
+    $(window).on('popstate', function() {
         handler.close();
     });
 </script>
