@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1">
     <title>Daily Javascript Problem</title>
-    <link href="styles/main.css" type="text/css" rel="stylesheet" >
-    <link href="styles/prism.css" rel="stylesheet" >
+    <link href="styles/main.css" type="text/css" rel="stylesheet" />
+    <link href="styles/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 </head>
 
 <body>
@@ -16,15 +18,14 @@
     <div class="logo">Daily Javascript Problem</div>
 </header>
 
-<div class="home">
+<div class="home" id="home">
     <h3 class="home__title">Land the job of your dreams!</h3>
     <p class="home__body">
         Receive JavaScript coding problems asked by interviewers every day and handpicked remote
         job offers from companies around the world every week.
     </p>
-    <form name="FreeSubscription" netlify-honeypot="bot-field" class="signup" method="post" netlify>
-        <p class="hidden"><label> Ignore this if you are human <input name="bot-field" /></label></p>
-        <input type="email" class="signup__input" placeholder="yourname@example.com" name="_replyto" />
+    <form name="subscriptionForm" class="signup" method="post" >
+        <input type="email" class="signup__input" placeholder="yourname@example.com" />
         <input type="submit" class="signup__btn" value="Sign up for free" />
         <div class="signup__notice">No spam, ever.</div>
     </form>
@@ -38,13 +39,13 @@
             <p class="plan__price">$0</p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
-                <li class="plan__feature">One problem every day at 9:00AM</li>
+                <li class="plan__feature">One problem every day</li>
                 <li class="plan__feature">No solutions</li>
                 <li class="plan__feature">No ads</li>
                 <li class="plan__feature">.</li>
             </ul>
             <p class="plan__billing">No billing. Quit anytime.</p>
-            <button class="plan__signup">Sign Up</button>
+            <button class="plan__signup" id="tier1Button">Sign up for free</button>
             <p class="plan__notice"></p>
         </div>
         <div class="plan plan--ideal" method="POST">
@@ -53,13 +54,13 @@
             <p class="plan__price plan__price--ideal">$9</p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
-                <li class="plan__feature">One problem every day at 9:00AM</li>
-                <li class="plan__feature">Guided solutions every day at 9:00PM</li>
+                <li class="plan__feature">One problem every day</li>
+                <li class="plan__feature">Guided solutions every day</li>
                 <li class="plan__feature">3 handpicked coding interviews weekly</li>
                 <li class="plan__feature">No ads</li>
             </ul>
             <p class="plan__billing">Automatic monthly billing. Quit anytime.</p>
-            <button class="plan__signup plan__signup--ideal" id="tier2Button">Subscribe for $9</button>          
+            <button class="plan__signup plan__signup--ideal" id="tier2Button">Subscribe for $9 /mo</button>          
             <p class="plan__notice"></p>
         </div>
         <div class="plan">
@@ -67,13 +68,13 @@
             <p class="plan__price">$14</p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
-                <li class="plan__feature">One problem every day at 9:00AM</li>
-                <li class="plan__feature">Guided solutions every day at 9:00PM</li>
+                <li class="plan__feature">One problem every day</li>
+                <li class="plan__feature">Guided solutions every day</li>
                 <li class="plan__feature">10 handpicked coding interviews weekly</li>
                 <li class="plan__feature">No ads</li>
             </ul>
             <p class="plan__billing">Automatic monthly billing. Quit anytime.</p>
-            <button class="plan__signup" id="tier3Button">Subscribe for $14</button>
+            <button class="plan__signup" id="tier3Button">Subscribe for $14 /mo</button>
             <p class="plan__notice"></p>
         </div>
     </div>
@@ -146,6 +147,10 @@
     <input type="hidden" id="planAmount" name="planAmount" />
 </form>
 
+<div id="result" class="modal">
+    <p>Will it work?</p>
+</div>
+
 <script src="scripts/prism.js"></script>
 <script>
     var handler = StripeCheckout.configure ({
@@ -153,25 +158,29 @@
         image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
         locale: 'auto',
         token: function(token) {
-            document.getElementById('stripeToken').value = token.id;
-            document.getElementById('stripeEmail').value = token.email;
+            $('#stripeToken').val(token.id);
+            $('#stripeEmail').val(token.email);
             var proxy = 'https://cors-anywhere.herokuapp.com/';
-            var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.run.webtask.io/StripeBackend";
+            var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.sandbox.auth0-extend.com/StripeBackend";
             $.ajax({
                 url : proxy + webtaskUrl,
                 type : "POST",
                 data : $("#paymentForm").serialize(),
                 success : function (response){
-                    console.log("Shit works yo");
+                    if(response.results.status){
+                        window.open('./pages/confirmation.html', '_self');
+                    } else {
+                        window.open('./pages/error.html', '_self');
+                    };
                 },
                 error : function () {
-                    console.log("Didn't do shit");
+                    window.open('./pages/error.html', '_self');
                 }
             });
         }
     });
 
-    document.getElementById('tier2Button').addEventListener('click', function(e) {
+    $('#tier2Button').on('click', function(event) {
         document.getElementById('planAmount').value = 9;
         handler.open({
             name: 'Daily Javascript Problems',
@@ -181,7 +190,7 @@
         e.preventDefault();
     });
 
-    document.getElementById('tier3Button').addEventListener('click', function(e) {
+    $('#tier3Button').on('click', function(event) {
         document.getElementById('planAmount').value = 14;
         handler.open({
             name: 'Daily Javascript Problems',
@@ -191,8 +200,32 @@
         e.preventDefault();
     });
 
-    window.addEventListener('popstate', function() {
-    handler.close();
+    $('#tier1Button').on('click', function(){
+        $('html, body').animate({
+            scrollTop: ($('#home').offset().top)
+        }), 200;
+    });
+
+    $('.signup__btn').on('click', function( event ){
+        event.preventDefault();
+        var eeUrl = 'https://api.elasticemail.com/v2/contact/add';
+        $.post( eeUrl, {
+            email : $('.signup__input').val(),
+            publicAccountId : '199b5c02-90a4-4d21-a3e9-64d5b5870d4e',
+            listName : 'Intern Plan'
+        }, function( data ){
+            alert('success');
+            console.log( data );
+            window.open('./pages/confirmation.html', '_self');
+        }, 'json' )
+        .fail( function() {
+            alert('error');
+            window.open('./pages/error.html', '_self');
+        } );
+    });
+
+    window.on('popstate', function() {
+        handler.close();
     });
 </script>
 
