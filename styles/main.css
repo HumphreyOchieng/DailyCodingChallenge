@@ -29,8 +29,8 @@ html{
 }
 .home__title{
     font-family: "Montserrat", sans-serif;
-    font-size: 2.4em;
-    font-weight: 700;
+    font-size: 2.7em;
+    font-weight: 900;
 }
 .home__body{
     font-weight: 400;
@@ -68,14 +68,19 @@ html{
 }
 .plan__tier{
     font-size: 1.88rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: Montserrat, sans-serif;
 }
 .plan__price{
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: Montserrat;
     border-bottom: 1px solid #aaa;
+}
+.plan__cycle{
+    font-size: 1.3rem;
+    color: #000;
+    font-weight: 500;
 }
 .plan__features-title{
     text-decoration: underline;
@@ -241,6 +246,7 @@ html{
 /*Laptop*/
 @media only screen and (min-width: 900px){
     .home__title{
+        padding-top: 3rem;
         padding-bottom: 2.618rem;
         font-size: 3rem;
     }
@@ -265,4 +271,3 @@ html{
         display: inline-block;
     }
 }
-
