@@ -25,12 +25,11 @@ html{
 .home{
     font-family: "Open Sans", sans-serif;
     background: #44c3fd;
-    border-bottom: 1px solid #aaa;
 }
 .home__title{
     font-family: "Montserrat", sans-serif;
     font-size: 2.7em;
-    font-weight: 900;
+    font-weight: 800;
 }
 .home__body{
     font-weight: 400;
@@ -57,7 +56,7 @@ html{
 }
 .plans__title{
     font-family: Montserrat, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.6rem;
 }
 .plan{
@@ -67,9 +66,9 @@ html{
     border: 1px solid #aaa;
 }
 .plan__tier{
-    font-size: 1.88rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat,"Open Sans";
 }
 .plan__price{
     font-size: 2rem;
@@ -80,7 +79,7 @@ html{
 .plan__cycle{
     font-size: 1.3rem;
     color: #000;
-    font-weight: 500;
+    font-weight: 600;
 }
 .plan__features-title{
     text-decoration: underline;
@@ -131,15 +130,23 @@ html{
     background-color: #ffa500;
     cursor: pointer;
 }
+.example{
+    background: #eee;
+}
 .example__title{
     font-family: Montserrat, sans-serif;
     text-align: center;
     font-size: 1.6rem;
+    font-weight: 800;
+}
+.example__body{
+    font-family: "Open Sans", sans-serif;
 }
 .faq__title{
     text-align: center;
     font-family: Montserrat, sans-serif;
     font-size: 1.6rem;
+    font-weight: 800;
 }
 .faq__body{
     font-family: "Open Sans", sans-serif;
@@ -149,6 +156,7 @@ html{
 }
 .faq__link{
     font-weight: 400;
+    color: #111;
 }
 .footer{
     text-align: center;
@@ -161,6 +169,7 @@ html{
 .tos a, .privacy a{
     color: #333;
     text-decoration: none;
+    font-weight: 600;
 }
 
 
@@ -169,7 +178,7 @@ html{
     padding: 0.816rem;
 }
 .home{
-    padding: 6rem 2rem 2rem;
+    padding: 4rem 2rem 2rem;
 }
 .home__title{
     text-align: center;
@@ -193,11 +202,9 @@ html{
     width: 100%;
     line-height: 2.618rem;
 }
-
-
 .plans__title{
     text-align: center;
-    padding: 1rem 0 2rem;
+    margin: 1rem auto;
     width: 95%;
 }
 .plan{
@@ -225,8 +232,20 @@ html{
     line-height: 2rem;
     margin-bottom: 1rem;
 }
+.example{
+    padding: 2rem 0;
+}
 .example__title{
-    padding-top: 2rem;
+    padding: 2rem 0;
+}
+.example__body{
+    width: 95%;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+}
+.example pre{
+    width: 95%;
+    margin: 0 auto 1.5rem;
 }
 .faq{
     width: 90%;
@@ -246,7 +265,7 @@ html{
 /*Laptop*/
 @media only screen and (min-width: 900px){
     .home__title{
-        padding-top: 3rem;
+        padding-top: 4rem;
         padding-bottom: 2.618rem;
         font-size: 3rem;
     }
