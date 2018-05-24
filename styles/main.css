@@ -63,7 +63,7 @@ html{
     font-family: "Open Sans", sans-serif;
     border: none;
     border-radius: 3px;
-    border: 1px solid #aaa;
+    border: 1px solid #333;
 }
 .plan__tier{
     font-size: 1.8rem;
@@ -74,10 +74,10 @@ html{
     font-size: 2rem;
     font-weight: 600;
     font-family: Montserrat;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #444;
 }
 .plan__cycle{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #000;
     font-weight: 600;
 }
@@ -142,6 +142,9 @@ html{
 .example__body{
     font-family: "Open Sans", sans-serif;
 }
+.faq{
+    background: #eee/*#FFF4DE*/;
+}
 .faq__title{
     text-align: center;
     font-family: Montserrat, sans-serif;
@@ -161,13 +164,14 @@ html{
 .footer{
     text-align: center;
     font-family: Montserrat, sans-serif;
-    background: #eee;
+    background: #666;
+    color: #fff;
 }
 .copyright{
     font-weight: 600;
 }
 .tos a, .privacy a{
-    color: #333;
+    color: #ddd;
     text-decoration: none;
     font-weight: 600;
 }
@@ -178,7 +182,7 @@ html{
     padding: 0.816rem;
 }
 .home{
-    padding: 4rem 2rem 2rem;
+    padding: 4rem 2rem 3rem;
 }
 .home__title{
     text-align: center;
@@ -210,7 +214,7 @@ html{
 .plan{
     text-align: center;
     width: 95%;
-    margin: 0.326rem auto 1rem;
+    margin: 0.326rem auto 4rem;
 }
 .plan__tier{
     padding-top: 1rem;
@@ -248,8 +252,7 @@ html{
     margin: 0 auto 1.5rem;
 }
 .faq{
-    width: 90%;
-    margin: 2rem auto;
+    padding: 2rem 7rem 4rem;
 }
 .faq__title{
     padding: 2rem 0 1.618rem;
