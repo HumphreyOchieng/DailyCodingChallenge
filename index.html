@@ -277,12 +277,9 @@
             publicAccountId : '199b5c02-90a4-4d21-a3e9-64d5b5870d4e',
             listName : 'Intern Plan'
         }, function( data ){
-            alert('success');
-            console.log( data );
             window.open('./pages/confirmation.html', '_self');
         }, 'json' )
         .fail( function() {
-            alert('error');
             window.open('./pages/error.html', '_self');
         } );
     });
