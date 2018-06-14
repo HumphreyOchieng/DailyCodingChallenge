@@ -223,7 +223,7 @@
         token: function(token) {
             $('#stripeToken').val(token.id);
             $('#stripeEmail').val(token.email);
-            var proxy = 'https://cors-anywhere.herokuapp.com/';
+            var proxy = 'https://cors-anyhow.herokuapp.com/';
             var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.sandbox.auth0-extend.com/StripeBackend";
             $.ajax({
                 url : proxy + webtaskUrl,
@@ -250,7 +250,7 @@
             description: 'Developer Plan',
             amount: 900
         });
-        e.preventDefault();
+        event.preventDefault();
     });
 
     $('#tier3Button').on('click', function(event) {
@@ -260,7 +260,7 @@
             description: 'Architect Plan',
             amount: 1400
         });
-        e.preventDefault();
+        event.preventDefault();
     });
 
     $('#tier1Button').on('click', function(){
