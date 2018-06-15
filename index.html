@@ -223,14 +223,14 @@
         token: function(token) {
             $('#stripeToken').val(token.id);
             $('#stripeEmail').val(token.email);
-            var proxy = 'https://cors-anyhow.herokuapp.com/';
-            var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.sandbox.auth0-extend.com/StripeBackend";
+            var proxy = 'https://cors-anywhere.herokuapp.com/';
+            var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.sandbox.auth0-extend.com/DJSBackend";
             $.ajax({
                 url : proxy + webtaskUrl,
                 type : "POST",
                 data : $("#paymentForm").serialize(),
                 success : function (response){
-                    if(response.results.status){
+                    if(response.success){
                         window.open('./pages/confirmation.html', '_self');
                     } else {
                         window.open('./pages/error.html', '_self');
