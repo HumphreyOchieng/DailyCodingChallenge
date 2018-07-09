@@ -18,16 +18,15 @@ html{
 /*Typography and color*/
 .header{
     font-size: 1.1rem;
-    font-family: "Montserrat", monospace;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
     font-weight: 700;
-    /*background : #44c3fd;*/
 }
 .home{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     background: #44c3fd;
 }
 .home__title{
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
     font-size: 2.7em;
     font-weight: 800;
 }
@@ -37,7 +36,7 @@ html{
 }
 .signup__input{
     font-size: 1rem;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     border: none;
 }
 .signup__btn{
@@ -45,7 +44,7 @@ html{
     border: none;
     font-size: 1rem;
     font-weight: 600;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 .signup__btn:hover{
     cursor: pointer;
@@ -55,12 +54,12 @@ html{
     font-size: 0.9rem;
 }
 .plans__title{
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
     font-weight: 800;
     font-size: 1.6rem;
 }
 .plan{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 3px;
     border: 1px solid #333;
@@ -68,12 +67,12 @@ html{
 .plan__tier{
     font-size: 1.8rem;
     font-weight: 700;
-    font-family: Montserrat,"Open Sans";
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
 .plan__price{
     font-size: 2rem;
     font-weight: 600;
-    font-family: Montserrat;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
     border-bottom: 1px solid #444;
 }
 .plan__cycle{
@@ -99,7 +98,7 @@ html{
     border: 2px solid #000;
     border-radius: 3px;
     background: #fff;
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
 .stripe_button{
     font-size: 1rem;
@@ -107,7 +106,7 @@ html{
     border: 2px solid #000;
     border-radius: 3px;
     background: #fff;
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
 .plan:nth-child(1) .plan__tier, .plan:nth-child(1) .plan__price{
     background: #eee;
@@ -134,25 +133,25 @@ html{
     background: #eee;
 }
 .example__title{
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
     text-align: center;
     font-size: 1.6rem;
     font-weight: 800;
 }
 .example__body{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 .faq{
     background: #eee/*#FFF4DE*/;
 }
 .faq__title{
     text-align: center;
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
     font-weight: 800;
 }
 .faq__body{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 .faq__question{
     font-weight: 700;
@@ -163,7 +162,7 @@ html{
 }
 .footer{
     text-align: center;
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
     background: #666;
     color: #fff;
 }
@@ -208,13 +207,12 @@ html{
 }
 .plans__title{
     text-align: center;
-    margin: 1rem auto;
-    width: 95%;
+    padding: 2rem 0;
 }
 .plan{
     text-align: center;
     width: 95%;
-    margin: 0.326rem auto 4rem;
+    margin: 0.326rem auto 2rem;
 }
 .plan__tier{
     padding-top: 1rem;
@@ -252,7 +250,7 @@ html{
     margin: 0 auto 1.5rem;
 }
 .faq{
-    padding: 2rem 7rem 4rem;
+    padding: 2rem 2rem 4rem;
 }
 .faq__title{
     padding: 2rem 0 1.618rem;
@@ -291,5 +289,9 @@ html{
     .plan{
         width: 33%;
         display: inline-block;
+        margin-bottom: 4rem;
+    }
+    .faq{
+        padding: 2rem 7rem 4rem;
     }
 }
