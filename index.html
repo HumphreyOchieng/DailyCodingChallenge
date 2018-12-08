@@ -36,7 +36,7 @@
         job offers from companies around the world every week.
     </p>
     <form name="subscriptionForm" class="signup" method="post" >
-        <input type="email" class="signup__input" placeholder="youremail@example.com" />
+        <input type="email" class="signup__input" placeholder="Enter your email here" />
         <input type="submit" class="signup__btn" value="Sign up for free" />
         <div class="signup__notice">No spam, ever.</div>
     </form>
@@ -118,7 +118,7 @@
     <div class="plans__title">Receiving daily problems is free forever!</div>
     <div class="plans__body">
         <div class="plan">
-            <p class="plan__tier">Intern</p>
+            <p class="plan__tier">Bronze</p>
             <p class="plan__price">$0<span class="plan__cycle">/forever</span></p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
@@ -133,7 +133,7 @@
         </div>
         <div class="plan plan--ideal" method="POST">
             <!-- <p class="plan__title">Most popular</p> -->
-            <p class="plan__tier">Developer</p>
+            <p class="plan__tier">Silver</p>
             <p class="plan__price plan__price--ideal">$9<span class="plan__cycle">/mo</span></p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
@@ -147,7 +147,7 @@
             <p class="plan__notice"></p>
         </div>
         <div class="plan">
-            <p class="plan__tier">Architect</p>
+            <p class="plan__tier">Gold</p>
             <p class="plan__price">$14<span class="plan__cycle">/mo</span></p>
             <p class="plan__features-title">Features</p>
             <ul class="plan__features">
@@ -169,25 +169,19 @@
         <li class="faq__item">
             <p class="faq__question">Why JavaScript?</p>
             <p class="faq__answer">
-                I chose JavaScript beacuse of its versatility and widespread adoption in commercial projects which means there are a lot of job opportunities. If you're interested in a similar service for Python developers, head on over to <a title="Go to Daily Coding Problems site" class="faq__link" href="www.dailycodingproblem.com">dailycodingproblems.com</a>
+                JavaScript is a versatile and can be used to develop the front and back end of a site, desktop applications and mobile applications. There's also a relatively high demand for skilled JavaScript developers which translates to better job prospects.
             </p>
         </li>
         <li class="faq__item">
             <p class="faq__question">Can I benefit from Daily JavaScript Problem?</p>
             <p class="faq__answer">
-                If you're learning how to develop programs in JavaScript and/or looking for a remote position, then yes.
+                If you are preparing for a technical interview or would just like a daily challenge to maintain your skillset, this is the service for you.
             </p>
         </li>
         <li class="faq__item">
             <p class="faq__question">How does Daily JavaScript Problem differ from similar offerings?</p>
             <p class="faq__answer">
                 One, we focus solely on JavaScript. Two, we hand curate a selection of remote jobs every week that you can apply for so you get to spend more of your time on improving your skills and less time job hunting. 
-            </p>
-        </li>
-        <li class="faq__item">
-            <p class="faq__question">Can't I just look for job interviews on my own?</p>
-            <p class="faq__answer">
-                You could, but you probably won't. Spending 1-2 hours everyday scanning job sites and trying to identify posts you can apply for is tiresome and you'll probably end up procrastinating. That's also 7-14 hours every week or 28-56 hours every month that you won't get back so let me do it for you. I'm sure you'll find better ways to spend your time.
             </p>
         </li>
         <li class="faq__item">
@@ -206,7 +200,7 @@
     <div class="privacy"><a href="./pages/privacy.html">Privacy Statement</a></div>
 </footer>
 
-<form id="paymentForm" action="https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.run.webtask.io/StripeBackend" method="POST" class="hidden" enctype="application/x-www-form-urlencoded">
+<form id="paymentForm" action="https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.sandbox.auth0-extend.com/DJSBackend" method="POST" class="hidden" enctype="application/x-www-form-urlencoded">
     <input type="hidden" id="stripeToken" name="stripeToken"  />
     <input type="hidden" id="stripeEmail"  name="stripeEmail" />
     <input type="hidden" id="planAmount" name="planAmount" />
@@ -247,7 +241,7 @@
         document.getElementById('planAmount').value = 9;
         handler.open({
             name: 'Daily Javascript Problems',
-            description: 'Developer Plan',
+            description: 'Silver Plan',
             amount: 900
         });
         event.preventDefault();
@@ -257,7 +251,7 @@
         document.getElementById('planAmount').value = 14;
         handler.open({
             name: 'Daily Javascript Problems',
-            description: 'Architect Plan',
+            description: 'Gold Plan',
             amount: 1400
         });
         event.preventDefault();
@@ -270,12 +264,13 @@
     });
 
     $('.signup__btn').on('click', function( event ){
+        
         event.preventDefault();
         var eeUrl = 'https://api.elasticemail.com/v2/contact/add';
         $.post( eeUrl, {
             email : $('.signup__input').val(),
             publicAccountId : '199b5c02-90a4-4d21-a3e9-64d5b5870d4e',
-            listName : 'Intern Plan'
+            listName : 'Bronze Plan'
         }, function( data ){
             window.open('./pages/confirmation.html', '_self');
         }, 'json' )
