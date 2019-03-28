@@ -19,7 +19,7 @@
     <link href="styles/main.css" type="text/css" rel="stylesheet" />
     <link href="styles/prism.css" type="text/css" rel="stylesheet" />
     <link href="styles/linenumbers.css" type="text/css" rel="stylesheet" />
-    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
     
 </head>
 
@@ -143,7 +143,7 @@
                 <li class="plan__feature">.</li>
             </ul>
             <p class="plan__billing">Automatic monthly billing. Quit anytime.</p>
-            <button class="plan__signup plan__signup--ideal" id="tier2Button">Subscribe for $9</button>          
+            <button class="plan__signup plan__signup--ideal" id="tier2Button">Subscribe for $9</button>
             <p class="plan__notice"></p>
         </div>
         <div class="plan">
@@ -210,51 +210,23 @@
 <script src="scripts/prism.js"></script>
 <script src="scripts/plugins/linenumbers.js"></script>
 <script>
-    var handler = StripeCheckout.configure ({
-        key: 'pk_test_B71JqmlByKCwZFyJvUncyQcU',
-        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-        locale: 'auto',
-        token: function(token) {
-            $('#stripeToken').val(token.id);
-            $('#stripeEmail').val(token.email);
-            var proxy = 'https://cors-anywhere.herokuapp.com/';
-            var webtaskUrl = "https://wt-c87a5eeb292d90f6b32cf269cc4b70ce-0.sandbox.auth0-extend.com/DJSBackend";
-            $.ajax({
-                url : proxy + webtaskUrl,
-                type : "POST",
-                data : $("#paymentForm").serialize(),
-                success : function (response){
-                    if(response.success){
-                        window.open('./pages/confirmation.html', '_self');
-                    } else {
-                        window.open('./pages/error.html', '_self');
-                    }
-                },
-                error : function () {
-                    window.open('./pages/error.html', '_self');
-                }
-            });
-        }
+    Paddle.Setup({
+      vendor: 31297,
+      debug: true
     });
 
     $('#tier2Button').on('click', function(event) {
-        document.getElementById('planAmount').value = 9;
-        handler.open({
-            name: 'Daily Javascript Problems',
-            description: 'Silver Plan',
-            amount: 900
+        Paddle.Checkout.open({
+            product: 528502,
+            success: "./pages/confirmation.html"
         });
-        event.preventDefault();
     });
 
     $('#tier3Button').on('click', function(event) {
-        document.getElementById('planAmount').value = 14;
-        handler.open({
-            name: 'Daily Javascript Problems',
-            description: 'Gold Plan',
-            amount: 1400
+        Paddle.Checkout.open({
+            product: 528497,
+            success: "./pages/confirmation.html"
         });
-        event.preventDefault();
     });
 
     $('#tier1Button').on('click', function(){
@@ -277,10 +249,6 @@
         .fail( function() {
             window.open('./pages/error.html', '_self');
         } );
-    });
-
-    $(window).on('popstate', function() {
-        handler.close();
     });
 </script>
 
